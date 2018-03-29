@@ -1,7 +1,7 @@
 from Instruction import Instruction
 from itertools import islice
 
-def read():
+def readFile():
     file = open("automata.txt", 'r')
 
     instructions = []
@@ -32,9 +32,5 @@ def read():
                 ins.show()
 
     print("Automata con # de trancisiones: "+str(len(instructions)))
+
     file.close()
-
-
-    # with open('automata.txt') as f:
-    #     for line in islice(f, 4, None):
-    #         print (line)

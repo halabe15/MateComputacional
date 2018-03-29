@@ -10,6 +10,8 @@
 
 
 # Importacion de archivos
-from read import read
+from read import readFile
+from user import readUser
 
-read()
+readFile()
+print("La cadena que ingresaste es: "+readUser())
