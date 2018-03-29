@@ -28,10 +28,10 @@ def read():
                 instructions.append(ins)
                 # ins.show()
             else:
-                print("Esta instruccion esta incorrecta, revisa que los estados existan o el simbolo este dentro del alfabeto")
+                print("Esta instruccion esta incorrecta, revisa que los estados existan o el simbolo este dentro del alfabeto.\n    Error en numero de linea: "+str(i+1))
                 ins.show()
 
-    print(len(instructions))
+    print("Automata con # de trancisiones: "+str(len(instructions)))
     file.close()
 
 
