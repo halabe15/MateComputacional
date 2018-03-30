@@ -22,3 +22,8 @@ class Instruction:
         if state == self.initialState and symbol == self.symbol:
             return self.finalState
         return None
+
+    def checkEpsilon(self, state):
+        if self.symbol == 'E' and state == self.initialState:
+            return self.finalState
+        return None
