@@ -1,27 +1,40 @@
+from Stack import Stack
+import copy
+
 def run(automata, str):
 
-    stand = [automata['initial'][0]]
+    initial = Stack()
+    initial.push(automata['initial'][0])
+    stand = [initial]
     realStates = []
     fin = automata['final']
     autom = automata['automata']
     agrega = True
     tmp = []
 
-
     while agrega:
         agrega = False
         for state in stand:
             for ins in autom:
-                res = ins.checkEpsilon(state)
-                if res != None and res not in stand:
-                    stand.append(res)
-                    agrega = True
+                res = ins.checkEpsilon(state.peek())
+                if res != None: #and res not in stand:
+                    jump = False
+                    for st in stand:
+                        if st.peek() == res:
+                            jump = True
+                    if not jump:
+                        cop = copy.deepcopy(state)
+                        cop.push(res)
+                        stand.append(cop)
+                        agrega = True
     for char in str:
         for state in stand:
             for ins in autom:
-                res = ins.indicate(state, char)
+                res = ins.indicate(state.peek(), char)
                 if res != None:
-                    tmp.append(res)
+                    cop = copy.deepcopy(state)
+                    cop.push(res)
+                    tmp.append(cop)
         stand = tmp
         tmp = []
         agrega = True
@@ -29,11 +42,17 @@ def run(automata, str):
             agrega = False
             for state in stand:
                 for ins in autom:
-                    res = ins.checkEpsilon(state)
-                    if res != None and res not in stand:
-                        stand.append(res)
-                        agrega = True
-
+                    res = ins.checkEpsilon(state.peek())
+                    if res != None: #and res not in stand:
+                        jump = False
+                        for st in stand:
+                            if st.peek() == res:
+                                jump = True
+                        if not jump:
+                            co = copy.deepcopy(state)
+                            co.push(res)
+                            stand.append(co)
+                            agrega = True
 
 
 
@@ -44,12 +63,15 @@ def run(automata, str):
     stand = tmp
 
     print("Estados finales (donde se quedo despues de la solucion):")
-    print(stand)
+    for stack in stand:
+        print(stack.peek(), end=' ')
 
     tmp = False
+    print()
 
-    for state in fin:
-        if state in stand:
+    for state in stand:
+        if state.peek() in fin:
+            print(state)
             tmp = True
 
     if tmp:
