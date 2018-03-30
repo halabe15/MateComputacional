@@ -8,10 +8,11 @@
 #       Matricula: A01
 #       Contacto: A01@itesm.mx
 
-
 # Importacion de archivos
 from read import readFile
 from user import readUser
+from run import run
 
-readFile()
-print("La cadena que ingresaste es: "+readUser())
+automata = readFile()
+cadena = readUser()
+run(automata, cadena)
