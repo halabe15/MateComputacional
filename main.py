@@ -5,8 +5,8 @@
 #       Contacto: A01021800@itesm.mx
 #
 #       Victor Ferzuli
-#       Matricula: A01
-#       Contacto: A01@itesm.mx
+#       Matricula: A01022166
+#       Contacto: A01022166@itesm.mx
 
 # Importacion de archivos
 from read import readFile
