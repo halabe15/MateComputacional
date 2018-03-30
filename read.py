@@ -2,7 +2,7 @@ from Instruction import Instruction
 from itertools import islice
 
 def readFile():
-    file = open("automata.txt", 'r')
+    file = open("automata2.txt", 'r')
 
     automata = []
 
