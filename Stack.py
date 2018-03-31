@@ -3,10 +3,10 @@ class Stack:
         self.items = []
 
     def __str__(self):
-        str = "Start:\n"
+        str = "\n----------------------Start----------------------\n"
         for element in self.items:
             str = str + "->" + element
-        str = str + "\n End\n"
+        str = str + "\n----------------------End----------------------\n"
         return str
 
     def isEmpty(self):
